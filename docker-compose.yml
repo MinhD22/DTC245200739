@@ -1,0 +1,67 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: recipe-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: recipe_db
+      MYSQL_USER: recipe_user
+      MYSQL_PASSWORD: RecipeUser@2026!
+      MYSQL_ROOT_PASSWORD: RecipeRoot@2026!
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - recipe_network
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    container_name: recipe-wordpress
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_NAME: recipe_db
+      WORDPRESS_DB_USER: recipe_user
+      WORDPRESS_DB_PASSWORD: RecipeUser@2026!
+    volumes:
+      - wordpress_data:/var/www/html
+    
+    networks:
+      - recipe_network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: recipe-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8081:80"
+    networks:
+      - recipe_network
+  nginx:
+    image: nginx:alpine
+    container_name: recipe-nginx
+    restart: unless-stopped
+    depends_on:
+      - wordpress
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - recipe_network
+
+
+volumes:
+  mysql_data:
+  wordpress_data:
+
+networks:
+  recipe_network:
+    driver: bridge
