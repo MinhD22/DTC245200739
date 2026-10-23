@@ -43,6 +43,204 @@ recipe-website/
 │   └── loki-config.yml
 ├── promtail/
 │   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
+├── docker-compose.yml
+└── README.md
+recipe-website/
+├── nginx/
+│   └── nginx.conf
+├── prometheus/
+│   └── prometheus.yml
+├── loki/
+│   └── loki-config.yml
+├── promtail/
+│   └── promtail-config.yml
+├── wordpress/
+│   └── wp-content/
+│       └── themes/
+│           └── recipe-theme/
+│               ├── functions.php
+│               ├── index.php
+│               ├── single.php
+│               └── style.css
 ├── docker-compose.yml
 └── README.md
 
