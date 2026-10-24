@@ -1,3 +1,4 @@
+
 services:
 
   mysql:
@@ -5,12 +6,13 @@ services:
     container_name: recipe-mysql
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: recipe_db
-      MYSQL_USER: recipe_user
-      MYSQL_PASSWORD: RecipeUser@2026!
-      MYSQL_ROOT_PASSWORD: RecipeRoot@2026!
+     MYSQL_DATABASE: ${MYSQL_DATABASE}
+     MYSQL_USER: ${MYSQL_USER}
+     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
+      
     networks:
       - recipe_network
 
@@ -21,13 +23,13 @@ services:
     depends_on:
       - mysql
     environment:
-      WORDPRESS_DB_HOST: mysql:3306
-      WORDPRESS_DB_NAME: recipe_db
-      WORDPRESS_DB_USER: recipe_user
-      WORDPRESS_DB_PASSWORD: RecipeUser@2026!
+     WORDPRESS_DB_HOST: mysql:3306
+     WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+     WORDPRESS_DB_USER: ${MYSQL_USER}
+     WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - wordpress_data:/var/www/html
-    
+      - ./wordpress/wp-content/themes/recipe-theme:/var/www/html/wp-content/themes/recipe-theme
     networks:
       - recipe_network
 
@@ -44,6 +46,7 @@ services:
       - "8081:80"
     networks:
       - recipe_network
+
   nginx:
     image: nginx:alpine
     container_name: recipe-nginx
@@ -56,6 +59,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     networks:
       - recipe_network
+
   nginx-exporter:
     image: nginx/nginx-prometheus-exporter:1.5.1
     container_name: recipe-nginx-exporter
@@ -66,6 +70,7 @@ services:
       - "--nginx.scrape-uri=http://nginx:8080/stub_status"
     networks:
       - recipe_network
+
   loki:
     image: grafana/loki:latest
     container_name: recipe-loki
@@ -78,6 +83,7 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - recipe_network
+
   promtail:
     image: grafana/promtail:latest
     container_name: recipe-promtail
@@ -92,6 +98,7 @@ services:
       - loki
     networks:
       - recipe_network
+
   prometheus:
     image: prom/prometheus:latest
     container_name: recipe-prometheus
@@ -101,6 +108,7 @@ services:
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
+
     networks:
       - recipe_network
 
@@ -138,7 +146,7 @@ services:
     depends_on:
       - mysql
     environment:
-      DATA_SOURCE_NAME: "recipe_user:RecipeUser@2026!@(mysql:3306)/"
+     DATA_SOURCE_NAME: "${MYSQL_USER}:${MYSQL_PASSWORD}@(mysql:3306)/"
     ports:
       - "9104:9104"
     networks:
@@ -152,6 +160,7 @@ volumes:
   grafana_data:
   loki_data:
   promtail_positions:
+
 networks:
   recipe_network:
     driver: bridge
